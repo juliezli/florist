@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src='https://cdn.rawgit.com/google/closure-library/master/closure/goog/base.js'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="library/soyutils.js"></script>
+	<script src="library/soyutils_usegoog.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="dist/js/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/main.css">
+</head>
+<body>
+
+<form id="addNewTodoItem">
+	<input id="newItem" type="text" />
+	<input id="submit" type="submit" />
+</form>
+<script type="text/javascript">
+	var node = document.createElement("li");                 // Create a <li> node
+
+	document.getElementById('addNewTodoItem').addEventListener("submit", function(event){
+		event.preventDefault();
+		var textNode = document.createTextNode(todoList.toDoItem({item: $('#newItem').val()}));
+		node.appendChild(textNode);
+	});
+</script>
+</body>
+</html>
