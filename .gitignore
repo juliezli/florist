@@ -1,4 +1,4 @@
 dist/*
 bin/*
 sftp-config.json
-static/*
+
