@@ -1,30 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Fragrare</title>
 	<script src='https://cdn.rawgit.com/google/closure-library/master/closure/goog/base.js'></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script src="library/soyutils.js"></script>
 	<script src="library/soyutils_usegoog.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="dist/js/main.js"></script>
+	<script src="dist/js/florist_global_generated.js"></script>
+	<script src="dist/js/florist_home_generated.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Sacramento|Playfair+Display:400,700,900|Lato:400,300,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="dist/css/main.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/styles.css">
 </head>
 <body>
 
-<form id="addNewTodoItem">
-	<input id="newItem" type="text" />
-	<input id="submit" type="submit" />
-</form>
-<script type="text/javascript">
-	var node = document.createElement("li");                 // Create a <li> node
+<div class="hero">
+  <script type="text/javascript">
+    document.write(florist.global.nav({brand:"Fragrare", cartItemList: [1,2,3,4, 5]}));
+    document.write(florist.home.hero({brand:"Fragrare", currentYear: new Date().getFullYear()}));
+  </script>
+</div>
 
-	document.getElementById('addNewTodoItem').addEventListener("submit", function(event){
-		event.preventDefault();
-		var textNode = document.createTextNode(todoList.toDoItem({item: $('#newItem').val()}));
-		node.appendChild(textNode);
-	});
+<script type="text/javascript">
+	document.write(florist.home.marketing({msg:"Show your love to mom ", savings:"20%", holiday:"Mother's Day"}));
+</script>
+
+<main>
+  <div class="container">
+    <div class="row">
+      
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-xs-12 col-md-3 col-lg-4">
+          <div class="product-box">
+            <img src="static/imgs/arrangement-1.jpeg" alt="">
+              <div class="product-details text-center">
+                <p>garden mix | mother's day special</p>
+                <p class="">from $30</p>
+                <button type="" class="btn btn-primary cta-revert">Details</button>
+              </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3 col-lg-4">
+          <div class="product-box">
+            <img src="static/imgs/arrangement-2_2.jpg" alt="">
+              <div class="product-details text-center">
+                <p>garden mix | mother's day special</p>
+                <p>from $30</p>
+                <button type="" class="btn btn-primary cta-revert">Details</button>
+              </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3 col-lg-4">
+          <div class="product-box">
+            <img src="static/imgs/arrangement-3.jpeg" alt="">
+              <div class="product-details text-center">
+                <p>garden mix | mother's day special</p>
+                <p>from $30</p>
+                <button type="" class="btn btn-primary cta-revert">Details</button>
+              </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3 col-lg-4">
+          <div class="product-box">
+            <img src="static/imgs/arrangement-4.jpeg" alt="">
+              <div class="product-details text-center">
+                <p>garden mix | mother's day special</p>
+                <p>from $30</p>
+                <button type="" class="btn btn-primary cta-revert">Details</button>
+              </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3 col-lg-4">
+          <div class="product-box">
+            <img src="static/imgs/arrangement-5.jpeg" alt="">
+              <div class="product-details text-center">
+                <p>garden mix | mother's day special</p>
+                <p>from $30</p>
+                <button type="" class="btn btn-primary cta-revert">Details</button>
+              </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3 col-lg-4">
+          <div class="product-box">
+            <img src="static/imgs/arrangement-6.jpeg" alt="">
+              <div class="product-details text-center">
+                <p>garden mix | mother's day special</p>
+                <p>from $30</p>
+                <button type="" class="btn btn-primary cta-revert">Details</button>
+              </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<script type="text/javascript">
+	document.write(florist.global.footer({brand:"Fragrare", currentYear: new Date().getFullYear()}));
 </script>
 </body>
 </html>

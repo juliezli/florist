@@ -1,0 +1,61 @@
+{namespace florist.home}
+  
+/**
+ * Home Hero
+ * 
+ * 
+ */
+{template .hero}
+  <div class="home-hero"></div>
+  <div class="cover-overlay"></div>
+  <div class="hero-msg">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class=" text-center">
+            <h1>HAND PICKED &amp; FRESH DELIVERED </h1>
+            <button class="btn btn-primary cta" type="button">
+              ORDER NOW
+            </button>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{/template}
+
+/**
+ * Home Marketing Msg
+ * @param msg
+ * @param savings
+ * @param holiday
+ */
+{template .marketing}
+  <div class="bg-accent">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <p class="text-white marketing-msg">{$msg} | Save {$savings} on {$holiday}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{/template}
+
+/**
+ * Home product-box
+ * @param imgURL
+ * @param price
+ * @param name
+ * @param holiday
+ */
+{template .productBox}
+  <div class="productBox">
+    <div class="col-xs-12 col-md-4 col-lg-3">
+      <img src="{$imgURL}" alt="">
+      <h5>{$name} | {$holiday}</h5>
+      <p>{$price}</p>
+    </div>
+  </div>
+{/template}

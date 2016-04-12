@@ -1,0 +1,23 @@
+/* ----------------------------------------------------------------------
+- Site Name:	Julie Li's Portfolio
+- Site URL:		http://www.zhuyingli.com
+- Resources:
+				Normalise.css (http://necolas.github.com/normalize.css/), 
+				CSS Tricks (css-tricks.com),
+				Codrops(http://tympanus.net/codrops/)
+------------------------------------------------------------------------- */
+
+@import "components/mixins";
+@import "components/variables";
+@import "components/base";
+@import "components/typography";
+@import "components/helpers";
+@import "components/layout";
+
+@import "vendor/animsition";
+
+html {
+  font-family: 'lato'; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
