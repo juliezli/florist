@@ -1,0 +1,53 @@
+{namespace florist.catalog}
+
+/**
+ * Catalog
+ * @param brand
+ * @param cartItemList
+ * @param marketingMsg
+ * @param searchWord
+ * @param productList
+ * @param currentYear
+ */
+{template .page}
+  {call .header data="all"/}
+  {call florist.home.marketing}
+    {param msg: $marketingMsg.msg/}
+    {param savings: $marketingMsg.savings/}
+    {param holiday: $marketingMsg.holiday/}
+  {/call}
+  {call florist.global.subNav data="all" /}
+  {call florist.home.productBoxWrapper data="all" /}
+  {call florist.global.footer data="all" /}
+{/template}
+
+/**
+ * Header
+ * @param brand
+ * @param cartItemList
+ * @param searchWord
+ */
+{template .header}
+  <div class="hero header">
+    {call florist.global.nav data="all" /}
+    <div class="home-hero"></div>
+    <div class="cover-overlay"></div>
+    <div class="hero-msg">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class=" text-center">
+              <h1>{$searchWord}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{/template}
+
+
+
+
+
+

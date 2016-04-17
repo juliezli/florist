@@ -1,0 +1,141 @@
+{namespace florist.cartPage}
+
+/**
+ * Cart Page
+ * @param brand
+ * @param itemList
+ * @param total
+ * @param marketingMsg
+ * @param currentYear
+ */
+{template .cartPage}
+  {call florist.product.header data="all"/}
+  {call florist.home.marketing}
+    {param msg: $marketingMsg.msg/}
+    {param savings: $marketingMsg.savings/}
+    {param holiday: $marketingMsg.holiday/}
+  {/call}
+  {call .cartDetails data="all" /}
+  {call florist.global.footer data="all" /}
+{/template}
+
+
+/**
+ * Cart Details
+ * @param itemList
+ * @param total
+ */
+{template .cartDetails}
+  <main>
+    <div class="cart-details">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 ">
+            <div class="panel ">
+              <div class="panel-heading">
+                <div class="panel-title">
+                  <div class="row">
+                    <div class="col-xs-12 text-center">
+                      <h2>Shopping Cart</h2>
+                    </div>
+                  </div>
+                  <hr class="style-slash">
+                </div>
+              </div>
+              <div class="panel-body">
+                <hr>
+                // <!--Table title-->
+                <div class="row">
+                  <div class="col-xs-2">
+                  </div>
+                  <div class="col-xs-4">
+                    <h6 class=""><strong>Product name</strong></h6>
+                  </div>
+                  <div class="col-xs-6">
+                    <div class="col-xs-6 text-right">
+                      <h6><strong>Price</strong></h6>
+                    </div>
+                    <div class="col-xs-4">
+                      <h6><strong>Quantity</strong></h6>
+                    </div>
+                    <div class="col-xs-2">
+                    </div>
+                  </div>
+                </div>
+                // <!--End Table title-->
+                <hr>
+                {call .itemList data="all" /}
+              </div>
+
+              <div class="panel-footer">
+                <div class="row text-center">
+                  <div class="col-xs-12">
+                    <h4 class="text-right">Total <strong>${$total}</strong></h4>
+                  </div>
+                </div>
+                <div class="row text-center">
+                  <div class="col-xs-12 col-sm-8 col-md-4 col-md-offset-8">
+                    <a href="payment.html" title=""><button type="button" class="btn cta btn-block">
+                      Checkout
+                    </button></a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{/template}
+
+
+/**
+ * Items in the cart
+ * @param itemList
+ */
+{template .itemList}
+    {foreach $item in $itemList}
+      {call .item}
+        {param name: $item.name /}
+        {param imgURL: $item.imgURL /}
+        {param price: $item.price /}
+        {param description: $item.description /}
+      {/call}
+      {if not isLast($item)}
+        <hr />
+      {/if}
+  {/foreach}
+{/template}
+
+
+/**
+ * Items in the cart
+ * @param imgURL
+ * @param name
+ * @param description
+ * @param price
+ */
+{template .item}
+<div class="row">
+  <div class="col-xs-2"><img class="img-responsive" src="{$imgURL}"></div>
+  <div class="col-xs-4">
+    <h4 class="product-name"><strong>{$name}</strong></h4><h4><small>{$description}</small></h4>
+  </div>
+  <div class="col-xs-6">
+    <div class="col-xs-6 text-right">
+      <h5><strong>${$price}</strong></h5>
+    </div>
+    <div class="col-xs-4">
+      <input id="quantity" type="number" class="form-control" step="1" min="1" value="1"></input>
+    </div>
+    <div class="col-xs-2">
+      <button type="button" class="btn btn-link btn-xs">
+        <span class="glyphicon glyphicon-trash"> </span>
+      </button>
+    </div>
+  </div>
+</div>
+{/template}
+

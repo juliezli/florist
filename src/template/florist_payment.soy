@@ -1,0 +1,389 @@
+{namespace florist.payment}
+
+/**
+ * Payment Page
+ * @param brand
+ * @param marketingMsg
+ * @param currentYear
+ */
+{template .paymentPage}
+  {call florist.product.header data="all"/}
+  {call florist.home.marketing}
+    {param msg: $marketingMsg.msg/}
+    {param savings: $marketingMsg.savings/}
+    {param holiday: $marketingMsg.holiday/}
+  {/call}
+
+  <main>
+    <div class="container checkout">
+      <div class="row">
+        <div class="panel-title">
+          <div class="row">
+            <div class="col-xs-12 text-center">
+              <h2>Checkout</h2>
+            </div>
+          </div>
+          <hr class="style-slash">
+        </div>
+        {call .shipping data="all" /}
+        {call .payment data="all" /}
+      </div>
+      <div>
+        <div class="form-group">
+            <div class="col-sm-6 col-md-6 col-md-offset-3 col-xs-12">
+                <button type="submit" class="btn cta btn-block">Place Order</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  {call florist.global.footer data="all" /}
+{/template}
+
+
+
+/**
+ * Shipping
+ */
+{template .shipping}
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <div class="panel panel-info">
+      <div class="panel-body">
+          <div class="form-group">
+            <div class="col-md-12">
+              <hr>
+              <h4 class="text-center">Shipping Address</h4>
+              <hr>
+            </div>
+          </div>
+          <div class="form-group">
+              <div class="col-md-6 col-xs-12">
+                  <label>First Name</label>
+                  <input type="text" name="first_name" class="form-control" value="">
+              </div>
+              <div class="span1"></div>
+              <div class="col-md-6 col-xs-12">
+                  <label>Last Name</label>
+                  <input type="text" name="last_name" class="form-control" value="">
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-md-6 col-xs-12">
+                  <label>Address 1</label>
+                  <input type="text" name="address1" class="form-control" value="">
+              </div>
+              <div class="span1"></div>
+              <div class="col-md-6 col-xs-12">
+                  <label>Address 2</label>
+                  <input type="text" name="address2" class="form-control" value="">
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-md-4 col-xs-12">
+                  <label>City</label>
+                  <input type="text" name="city" class="form-control" value="">
+              </div>
+              <div class="span1"></div>
+              <div class="col-md-4 col-xs-12">
+                  <label>State</label>
+                  <div class="dropdown">
+                    <select id="CreditCardType" name="CreditCardType" class="selectpicker">
+                      <option value="alabama">Alabama</option>
+                      <option value="alaska">Alaska</option>
+                      <option value="arizona">Arizona</option>
+                      <option value="arkansas">Arkansas</option>
+                      <option value="california">California</option>
+                      <option value="colorado">Colorado</option>
+                      <option value="connecticut">Connecticut</option>
+                      <option value="delaware">Delaware</option>
+                      <option value="district-of-columbia">District of Columbia</option>
+                      <option value="florida">Florida</option>
+                      <option value="georgia">Georgia</option>
+                      <option value="hawaii">Hawaii</option>
+                      <option value="idaho">Idaho</option>
+                      <option value="illinois">Illinois</option>
+                      <option value="indiana">Indiana</option>
+                      <option value="iowa">Iowa</option>
+                      <option value="kansas">Kansas</option>
+                      <option value="kentucky" >Kentucky</option>
+                      <option value="louisiana">Louisiana</option>
+                      <option value="maine">Maine</option>
+                      <option value="maryland" >Maryland</option>
+                      <option value="massachusetts">Massachusetts</option>
+                      <option value="michigan">Michigan</option>
+                      <option value="minnesota">Minnesota</option>
+                      <option value="mississippi">Mississippi</option>
+                      <option value="missouri">Missouri</option>
+                      <option value="montana">Montana</option>
+                      <option value="nebraska">Nebraska</option>
+                      <option value="nevada">Nevada</option>
+                      <option value="new-hampshire">New Hampshire</option>
+                      <option value="new-jersey">New Jersey</option>
+                      <option value="new-mexico">New Mexico</option>
+                      <option value="new-york">New York</option>
+                      <option value="north-carolina" >North Carolina</option>
+                      <option value="north-dakota" >North Dakota</option>
+                      <option value="ohio">Ohio</option>
+                      <option value="oklahoma">Oklahoma</option>
+                      <option value="oregon" >Oregon</option>
+                      <option value="pennsylvania" >Pennsylvania</option>
+                      <option value="rhode-island">Rhode Island</option>
+                      <option value="south-carolina">South Carolina</option>
+                      <option value="south-dakota">South Dakota</option>
+                      <option value="tennessee">Tennessee</option>
+                      <option value="texas" >Texas</option>
+                      <option value="utah">Utah</option>
+                      <option value="vermont" >Vermont</option>
+                      <option value="virginia" >Virginia</option>
+                      <option value="washington">Washington</option>
+                      <option value="west-virginia">West Virginia</option>
+                      <option value="wisconsin">Wisconsin</option>
+                      <option value="wyoming">Wyoming</option>
+                    </select>
+
+                </div>
+              </div>
+              <div class="span1"></div>
+              <div class="col-md-4 col-xs-12">
+                  <label>Zip Code</label>
+                  <input type="text" name="zip_code" class="form-control" value="">
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-md-6 col-xs-12">
+                <label>Phone Number</label>
+                <input type="text" name="phone_number" class="form-control" value="">
+              </div>
+              <div class="span1"></div>
+              <div class="col-md-6 col-xs-12">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control" value="">
+              </div>
+          </div>
+      </div>
+    </div>
+  </div><!--SHIPPING METHOD END-->
+</div>
+  
+{/template}
+
+/**
+ * Payment
+ * 
+ */
+{template .payment}
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <div class="panel panel-info">
+      <div class="panel-body">
+        <div class="form-group">
+            <div class="col-md-12 text-center">
+                <hr>
+                <h4 class=""><i class="glyphicon glyphicon-lock"></i>Payment</h4>
+                <img class="" src="http://i76.imgup.net/accepted_c22e0.png" width="165px">
+                <p>Pay secure using your credit card.</p>
+                <hr>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+              
+              
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-12"><label>Card Type</label></div>
+          <div class="col-md-12">
+              <div class="dropdown">
+                <select id="CreditCardType" name="CreditCardType" class="selectpicker">
+                  <option value="5">Visa</option>
+                  <option value="6">MasterCard</option>
+                  <option value="7">American Express</option>
+                  <option value="8">Discover</option>
+                </select>
+              </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-10">
+              <label>Credit Card Number</label>
+              <input type="text" class="form-control" name="car_number" value="">
+            </div>
+            <div class="col-md-2">
+              <label>Card CVV</label>
+              <input type="text" class="form-control" name="car_code" value="">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <label>Expiration Date</label>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="dropdown">  
+                  <select class="selectpicker" name="">
+                    <option value="">Month</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="dropdown">
+                  <select class="selectpicker" name="">
+                    <option value="">Year</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                  </select>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <div class="panel panel-info">
+      <div class="panel-body">
+          <div class="form-group">
+            <div class="col-md-12">
+              <hr>
+              <h4 class="text-center">Billing Address</h4>
+              <hr>
+            </div>
+          </div>
+          <div class="form-group">
+              <div class="col-md-6 col-xs-12">
+                  <label>First Name</label>
+                  <input type="text" name="first_name" class="form-control" value="">
+              </div>
+              <div class="span1"></div>
+              <div class="col-md-6 col-xs-12">
+                  <label>Last Name</label>
+                  <input type="text" name="last_name" class="form-control" value="">
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-md-6 col-xs-12">
+                  <label>Address 1</label>
+                  <input type="text" name="address1" class="form-control" value="">
+              </div>
+              <div class="span1"></div>
+              <div class="col-md-6 col-xs-12">
+                  <label>Address 2</label>
+                  <input type="text" name="address2" class="form-control" value="">
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-md-4 col-xs-12">
+                  <label>City</label>
+                  <input type="text" name="city" class="form-control" value="">
+              </div>
+              <div class="span1"></div>
+              <div class="col-md-4 col-xs-12">
+                  <label>State</label>
+                  <div class="dropdown">
+                    <select id="CreditCardType" name="CreditCardType" class="selectpicker">
+                      <option value="alabama">Alabama</option>
+                      <option value="alaska">Alaska</option>
+                      <option value="arizona">Arizona</option>
+                      <option value="arkansas">Arkansas</option>
+                      <option value="california">California</option>
+                      <option value="colorado">Colorado</option>
+                      <option value="connecticut">Connecticut</option>
+                      <option value="delaware">Delaware</option>
+                      <option value="district-of-columbia">District of Columbia</option>
+                      <option value="florida">Florida</option>
+                      <option value="georgia">Georgia</option>
+                      <option value="hawaii">Hawaii</option>
+                      <option value="idaho">Idaho</option>
+                      <option value="illinois">Illinois</option>
+                      <option value="indiana">Indiana</option>
+                      <option value="iowa">Iowa</option>
+                      <option value="kansas">Kansas</option>
+                      <option value="kentucky" >Kentucky</option>
+                      <option value="louisiana">Louisiana</option>
+                      <option value="maine">Maine</option>
+                      <option value="maryland" >Maryland</option>
+                      <option value="massachusetts">Massachusetts</option>
+                      <option value="michigan">Michigan</option>
+                      <option value="minnesota">Minnesota</option>
+                      <option value="mississippi">Mississippi</option>
+                      <option value="missouri">Missouri</option>
+                      <option value="montana">Montana</option>
+                      <option value="nebraska">Nebraska</option>
+                      <option value="nevada">Nevada</option>
+                      <option value="new-hampshire">New Hampshire</option>
+                      <option value="new-jersey">New Jersey</option>
+                      <option value="new-mexico">New Mexico</option>
+                      <option value="new-york">New York</option>
+                      <option value="north-carolina" >North Carolina</option>
+                      <option value="north-dakota" >North Dakota</option>
+                      <option value="ohio">Ohio</option>
+                      <option value="oklahoma">Oklahoma</option>
+                      <option value="oregon" >Oregon</option>
+                      <option value="pennsylvania" >Pennsylvania</option>
+                      <option value="rhode-island">Rhode Island</option>
+                      <option value="south-carolina">South Carolina</option>
+                      <option value="south-dakota">South Dakota</option>
+                      <option value="tennessee">Tennessee</option>
+                      <option value="texas" >Texas</option>
+                      <option value="utah">Utah</option>
+                      <option value="vermont" >Vermont</option>
+                      <option value="virginia" >Virginia</option>
+                      <option value="washington">Washington</option>
+                      <option value="west-virginia">West Virginia</option>
+                      <option value="wisconsin">Wisconsin</option>
+                      <option value="wyoming">Wyoming</option>
+                    </select>
+
+                </div>
+              </div>
+              <div class="span1"></div>
+              <div class="col-md-4 col-xs-12">
+                  <label>Zip Code</label>
+                  <input type="text" name="zip_code" class="form-control" value="">
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-md-6 col-xs-12">
+                <label>Phone Number</label>
+                <input type="text" name="phone_number" class="form-control" value="">
+              </div>
+              <div class="span1"></div>
+              <div class="col-md-6 col-xs-12">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control" value="">
+              </div>
+          </div>
+      </div>
+    </div>
+  </div><!--SHIPPING METHOD END-->
+</div>
+  
+{/template}

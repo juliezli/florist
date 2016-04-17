@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fragrare | Catelog</title>
+    <script src='https://cdn.rawgit.com/google/closure-library/master/closure/goog/base.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="library/soyutils.js"></script>
+    <script src="library/soyutils_usegoog.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="dist/js/florist_global_generated.js"></script>
+    <script src="dist/js/florist_home_generated.js"></script>
+    <script src="dist/js/florist_catalog_generated.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Sacramento|Playfair+Display:400,700,900|Lato:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="dist/css/styles.css">
+</head>
+<body>
+  <script type="text/javascript">
+    var homeData = {
+      brand: "Fragrare",
+      cartItemList: [1,2,3,4, 5],
+      marketingMsg: {
+        msg: "Show your love to mom",
+        savings: "20%",
+        holiday: "Mother's Day"
+      },
+      currentYear: new Date().getFullYear(),
+      productList:[{
+        imgURL: "static/imgs/arrangement-2_2.jpg",
+        price: "$30",
+        name: "garden mix",
+        holiday: "Mother's Day"
+      },{
+        imgURL: "static/imgs/arrangement-3.jpeg",
+        price: "$33",
+        name: "bright & cherry",
+        holiday: "Mother's Day"
+      },{
+        imgURL: "static/imgs/arrangement-6.jpeg",
+        price: "$45",
+        name: "romantic mix",
+        holiday: "Anniversary"
+      },{
+        imgURL: "static/imgs/arrangement-5.jpeg",
+        price: "$50",
+        name: "emma collection",
+        holiday: "Mother's Day"
+      },{
+        imgURL: "static/imgs/arrangement-1.jpeg",
+        price: "$38",
+        name: "four seasons",
+        holiday: "Anniversary"
+      },{
+        imgURL: "static/imgs/arrangement-10.jpeg",
+        price: "$42",
+        name: "the blossom",
+        holiday: "Birthday's Day"
+      },{
+        imgURL: "static/imgs/arrangement-4.jpeg",
+        price: "$30",
+        name: "pastel padals",
+        holiday: "Mother's Day"
+      },{
+        imgURL: "static/imgs/arrangement-11.jpeg",
+        price: "$50",
+        name: "juicy",
+        holiday: "Birthday's Day"
+      }]
+    };
+    document.write(florist.catalog.page(homeData));
+  </script>
+</body>
+</html>
