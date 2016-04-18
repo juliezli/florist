@@ -88,9 +88,22 @@ var productData = {
   };
 function mainBody() {
   /**
+   * Product Box 
+   */
+   function handleClickProductBoxes() {
+    var productBoxList = document.getElementsByClassName('product-box');
+    for(var i = 0; i<productBoxList.length; i++) {
+      goog.events.listen(productBoxList[i], goog.events.EventType.CLICK, function(event) {
+        event.preventDefault();
+        document.body.innerHTML = florist.product.page(homeData);
+        $('.selectpicker').selectpicker({});
+      });
+    }
+  };
+
+  /**
    * Navigation 
    */
-
 
 
   /**
@@ -127,15 +140,16 @@ function mainBody() {
     catalogData['searchWord'] = goog.dom.getElement("search_input").value;;
     document.body.innerHTML = florist.cartPage.cartPage(productData);
 
-      /**
-       * Payment 
-       */
-       goog.events.listen(goog.dom.getElement('checkoutButton'), goog.events.EventType.CLICK, function (event) {
-        event.preventDefault();
-        var catalogData = homeData;
-        catalogData['searchWord'] = goog.dom.getElement("search_input").value;;
-        document.body.innerHTML = florist.payment.paymentPage(productData);
-      });
+    /**
+     * Payment 
+     */
+    goog.events.listen(goog.dom.getElement('checkoutButton'), goog.events.EventType.CLICK, function (event) {
+      event.preventDefault();
+      var catalogData = homeData;
+      catalogData['searchWord'] = goog.dom.getElement("search_input").value;;
+      document.body.innerHTML = florist.payment.paymentPage(productData);
+      $('.selectpicker').selectpicker({});
+    });
   });
 
 
@@ -148,19 +162,8 @@ function mainBody() {
     var catalogData = homeData;
     catalogData['searchWord'] = 'Catalog';
     document.body.innerHTML = florist.catalog.page(catalogData);
+    handleClickProductBoxes();
   });
 
-  /**
-   * Product Box 
-   */
-  var productBoxList = document.getElementsByClassName('product-box');
-  for(var i = 0; i<productBoxList.length; i++) {
-    goog.events.listen(productBoxList[i], goog.events.EventType.CLICK, function (event){
-      event.preventDefault();
-      document.body.innerHTML = florist.product.page(homeData);
-      $('.selectpicker').selectpicker({});
-    });
-  }
-
-
+  handleClickProductBoxes();
 };

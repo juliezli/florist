@@ -24,5 +24,8 @@
 	- delivery information
 
 ###### Payment
-- Add complimentary card
-- Add final receipt view
+- add complimentary card
+- add final receipt view
+- add confirmation
+	- "Thank you for purchase, we have received your order. "
+	- receipt	
