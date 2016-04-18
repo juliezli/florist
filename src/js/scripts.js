@@ -1,10 +1,3 @@
-// goog.require('goog.dom');
-
-// goog.events.listen(
-//     goog.dom.getElement('searchButton'),
-//     goog.events.EventType.CLICK,
-//     function(e) { alert("click") }
-// );
 
 var homeData = {
   brand: "Fragrare",
@@ -58,21 +51,24 @@ var homeData = {
   }]
 };
 
-window.onload = function(){
-  document.getElementById("main-body").innerHTML = florist.home.home(homeData);
-
-  document.getElementById('searchButton').onclick = function (event){
+function mainBody() {
+  document.body.innerHTML = florist.home.home(homeData);
+  
+  goog.events.listen(document.getElementById('searchButton'), goog.events.EventType.CLICK, function (event){
     event.preventDefault();
     var catalogData = homeData;
     catalogData['searchWord'] = document.getElementById("search_input").value;
-    document.getElementById("main-body").innerHTML = florist.catalog.page(catalogData);
-  };
+    document.body.innerHTML = florist.catalog.page(catalogData);
+  });
 
-  // document.getElementsByClassName('product-box').onclick = function (event){
-  //   event.preventDefault();
-  //   var catalogData = homeData;
-  //   catalogData['searchWord'] = document.getElementById("search_input").value;
-  //   document.getElementById("main-body").innerHTML = florist.product.page(catalogData);
-  // };
-};
+  // var productBoxList = document.getElementsByClassName('product-box');
+  // for(var i = 0; i <productBoxList.length; i++) {
+  //   productBoxList[i].onclick = function (event){
+  //     event.preventDefault();
+  //     var catalogData = homeData;
+  //     catalogData['searchWord'] = document.getElementById("search_input").value;
+  //     document.getElementById("main-body").innerHTML = florist.product.page(catalogData);
+  //   };
+  // }
+}
 

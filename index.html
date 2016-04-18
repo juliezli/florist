@@ -2,27 +2,24 @@
 <html>
 <head>
 	<title>Fragrare</title>
-	<script src='library/closure/goog/base.js'></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-	<script src="library/soyutils.js"></script>
-	<script src="library/soyutils_usegoog.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="dist/js/florist_global_generated.js"></script>
-	<script src="dist/js/florist_home_generated.js"></script>
-  <script src="dist/js/florist_catalog_generated.js"></script>
-  <script src="dist/js/florist_product_generated.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
-  <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/i18n/defaults-*.min.js"></script>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
-	<link href='https://fonts.googleapis.com/css?family=Sacramento|Playfair+Display:400,700,900|Lato:400,300,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="dist/css/styles.css">
+  <link href='https://fonts.googleapis.com/css?family=Sacramento|Playfair+Display:400,700,900|Lato:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="dist/css/styles.css">
+  <script src='library/closure-library/closure/goog/base.js'></script>
+  <script src='src/js/googRequire.js'></script>
+  <script src="library/soyutils_usegoog.js"></script>
+  <script src="dist/js/florist_global_generated.js"></script>
+  <script src="dist/js/florist_home_generated.js"></script>
+  <script src="dist/js/florist_catalog_generated.js"></script>
+  <script src="dist/js/florist_product_generated.js"></script>
   <script src="src/js/scripts.js"></script>
 </head>
-<body>
-  <div id="main-body"></div>
+<body onload="mainBody()">
 </body>
 </html>
