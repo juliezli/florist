@@ -42,7 +42,9 @@ p, a, span, small, button, label {
 a:hover{
   text-decoration: none;
 }
-
+.btn, .btn:focus, .btn:active {
+  outline:0 !important;
+}
 main{
   background: white;
   padding: 3em 0;
@@ -114,7 +116,7 @@ hr.style-slash{
   margin-top: 1em;
   border-radius: 0;
 }
-.cta:hover{
+.cta:hover, .cta:active{
   background: rgba(255,255,255, 0.85);
   color:  black;
   border: 1px solid COLOR_ACCENT_LIGHT;
@@ -258,6 +260,33 @@ a.dropdown-toggle:hover .badge, a.dropdown-toggle:active .badge, a.dropdown-togg
 }
 .navbar-default .navbar-toggle:focus .icon-bar, .navbar-default .navbar-toggle:hover .icon-bar {
   color: black;
+}
+.empty-search{
+  background: white !important;
+  border: 1px solid red !important;
+  border-right: 0 !important;
+  color: red;
+}
+.btn-red {
+  background: white !important;
+  border: 1px solid red !important;
+  border-left: 0 !important;
+  outline:0;
+}
+.btn-red .glyphicon{
+  color: red;
+}
+.alert-danger {
+  color: rgba(255,100,100, 0.75);
+  background-color: transparent; 
+  border-color: transparent; 
+}
+.alert {
+  padding: 0; 
+  border: 1px solid transparent;
+  position: absolute;
+  top: 75px;
+  font-size: 12px;
 }
 @media screen and (max-width: 768px) {  
   .navbar-default .navbar-collapse {
