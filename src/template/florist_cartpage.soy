@@ -1,9 +1,10 @@
 {namespace florist.cartPage}
 
+
 /**
  * Cart Page
  * @param brand
- * @param itemList
+ * @param cartItemList
  * @param total
  * @param marketingMsg
  * @param currentYear
@@ -21,7 +22,7 @@
 
 /**
  * Cart Details
- * @param itemList
+ * @param cartItemList
  * @param total
  */
 {template .cartDetails}
@@ -89,13 +90,12 @@
   </main>
 {/template}
 
-
 /**
  * Items in the cart
- * @param itemList
+ * @param cartItemList
  */
 {template .itemList}
-    {foreach $item in $itemList}
+    {foreach $item in $cartItemList}
       {call .item}
         {param name: $item.name /}
         {param imgURL: $item.imgURL /}

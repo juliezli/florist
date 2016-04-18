@@ -14,29 +14,28 @@
  * @param cartItemList
  */
 {template .cart}
-  <li class="drop down">
+  <li class="drop down" id="cartNavButton">
     <a href="cart.html" class="dropdown-toggle" data-toggle="dropdown" 
-      role="button" aria-haspopup="true" aria-expanded="false">
+      role="button" aria-haspopup="true" aria-expanded="false" id="cartNavButtonDropdown">
       Cart
       <span class="badge">{$cartItemList.length}</span>
     </a>
     <ul class="dropdown-menu list-group florist-cart">
-      <li>
-        <div class="row">
-          <div class="col-xs-6 text-center">
-            <img src="static/imgs/arrangement-2_2.jpg" width="80%">
-          </div>
-          <div class="col-xs-6 cart-item-info">
-            <h5>garden mix</h5>
-            <hr class="less-margin">
-            <small>$30 x 1</small>
-          </div>
+      {if length($cartItemList) == 0}
+        <p class="text-center">Your cart is empty</p>
+      {/if}
+      {foreach $cartItem in $cartItemList}
+          <div class="row">
+            <div class="col-xs-6 text-center">
+              <img src="{$cartItem.imgURL}" width="80%">
+            </div>
+            <div class="col-xs-6 cart-item-info">
+              <h5>{$cartItem.name}</h5>
+              <hr class="less-margin">
+              <small>${$cartItem.price}</small>
+            </div>
         </div>
         <hr />
-      </li>
-      {foreach $cartItem in $cartItemList}
-        <li class="list-group-item"><a href="#">{$cartItem}</a></li>
-          <hr />
       {/foreach}
       <div class="text-center"><button class="btn btn-primary cta" type="button" id="viewCartButton">View Cart</button></div>
     </ul>
@@ -84,9 +83,8 @@
           
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="index.html">Home</a></li>
-          <li class="active"><a href="catalog.html">Catalog</a></li>
-          // <li><a href="#">Gallery </a><span class="sr-only">(current)</span></li>
+          <li><a id="navHome">Home</a></li>
+          <li class="active"><a id="navCatalog">Catalog</a></li>
           {call .cart data="all" /}
         </ul>
 
