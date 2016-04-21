@@ -69,12 +69,13 @@
 
               <div class="panel-footer">
                 <div class="row text-center">
-                  <div class="col-xs-12">
-                    <h4 class="text-right">Total <strong>${$total}</strong></h4>
+                  <div class="col-xs-12 text-center">
+                    <h4 class=""><strong>Free Shipping</strong></h4>
+                    <h4 class="">Total <strong>${$total}</strong></h4>
                   </div>
                 </div>
                 <div class="row text-center">
-                  <div class="col-xs-12 col-sm-8 col-md-4 col-md-offset-8">
+                  <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
                     <button type="button" class="btn cta btn-block" id="checkoutButton">
                       Checkout
                     </button>
@@ -95,16 +96,16 @@
  * @param cartItemList
  */
 {template .itemList}
-    {foreach $item in $cartItemList}
-      {call .item}
-        {param name: $item.name /}
-        {param imgURL: $item.imgURL /}
-        {param price: $item.price /}
-        {param description: $item.description /}
-      {/call}
-      {if not isLast($item)}
-        <hr />
-      {/if}
+  {foreach $item in $cartItemList}
+    {call .item}
+      {param name: $item.name /}
+      {param imgURL: $item.imgURL /}
+      {param price: $item.price /}
+      {param description: $item.description /}
+    {/call}
+    {if not isLast($item)}
+      <hr />
+    {/if}
   {/foreach}
 {/template}
 
@@ -117,24 +118,24 @@
  * @param price
  */
 {template .item}
-<div class="row">
-  <div class="col-xs-2"><img class="img-responsive" src="{$imgURL}"></div>
-  <div class="col-xs-4">
-    <h4 class="product-name"><strong>{$name}</strong></h4><h4><small>{$description}</small></h4>
-  </div>
-  <div class="col-xs-6">
-    <div class="col-xs-6 text-right">
-      <h5><strong>${$price}</strong></h5>
-    </div>
+  <div class="row">
+    <div class="col-xs-2"><img class="img-responsive" src="{$imgURL}"></div>
     <div class="col-xs-4">
-      <input id="quantity" type="number" class="form-control" step="1" min="1" value="1"></input>
+      <h4 class="product-name"><strong>{$name}</strong></h4><h4><small>{$description}</small></h4>
     </div>
-    <div class="col-xs-2">
-      <button type="button" class="btn btn-link btn-xs">
-        <span class="glyphicon glyphicon-trash"> </span>
-      </button>
+    <div class="col-xs-6">
+      <div class="col-xs-6 text-right">
+        <h5><strong>${$price}</strong></h5>
+      </div>
+      <div class="col-xs-4">
+        <input id="quantity" type="number" class="form-control" step="1" min="1" value="1"></input>
+      </div>
+      <div class="col-xs-2">
+        <button type="button" class="btn btn-link btn-xs">
+          <span class="glyphicon glyphicon-trash"> </span>
+        </button>
+      </div>
     </div>
   </div>
-</div>
 {/template}
 

@@ -46,20 +46,20 @@ var mainHandler = {
       description: "A sweet, soft palette of pastels with whites, this organic-form arrangement features premium blooms such ashydrangea, sweet peas, stock, mums, and ranunculus."
     },{
       imgURL: "static/imgs/arrangement-4.jpeg",
-      price: 30,
+      price: 50,
       name: "pastel padals",
       holiday: "Mother's Day",
       description: "A sweet, soft palette of pastels with whites, this organic-form arrangement features premium blooms such ashydrangea, sweet peas, stock, mums, and ranunculus."
     },{
       imgURL: "static/imgs/arrangement-11.jpeg",
-      price: 50,
+      price: 30,
       name: "juicy",
-      holiday: "Birthday's Day",
+      holiday: "Mother's Day",
       description: "A sweet, soft palette of pastels with whites, this organic-form arrangement features premium blooms such ashydrangea, sweet peas, stock, mums, and ranunculus."
     }],
     marketingMsg: {
       msg: "Show your love to mom",
-      savings: "20%",
+      savings: " FREE SHIPPING",
       holiday: "Mother's Day",
       description: "A sweet, soft palette of pastels with whites, this organic-form arrangement features premium blooms such ashydrangea, sweet peas, stock, mums, and ranunculus."
     },
@@ -106,6 +106,7 @@ var mainHandler = {
     this.addSearchHandler();
     this.addViewCartButtonHandler();
     this.addNavBarButtonsHandler();
+    this.addPlaceOrderHandler();
     $('.selectpicker').selectpicker({});
   },
   renderCartPage: function() {
@@ -114,6 +115,12 @@ var mainHandler = {
     this.addViewCartButtonHandler();
     this.addSearchHandler();
     this.addCheckoutButtonHandler();
+  },
+  renderConfirmationPage: function() {
+    document.body.innerHTML = florist.confirmation.confirmationPage(this.data);
+    this.addNavBarButtonsHandler();
+    this.addViewCartButtonHandler();
+    this.addSearchHandler();
   },
   addClickProductBoxHandler: function() {
     var productBoxList = document.getElementsByClassName('product-box');
@@ -191,7 +198,15 @@ var mainHandler = {
       goog.dom.classlist.add(goog.dom.getElement("cartNavButton"), "open");
       event.stopPropagation();
     });
-  }
+  },
+  addPlaceOrderHandler: function() {
+    var self = this;
+    goog.events.listen(goog.dom.getElement('placeOrder'), goog.events.EventType.CLICK, function (event) {
+      event.preventDefault();
+
+      self.renderConfirmationPage();
+    });
+  },
 }
 
 function mainBody() {

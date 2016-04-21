@@ -1,6 +1,6 @@
 /*
 Variables */
-@def COLOR_BG             rgba(0,    0,  0,0.7);
+@def COLOR_BG             rgba(0,0,0,0.7);
 @def COLOR_ACCENT         #baa673;
 @def COLOR_ACCENT_LIGHT   rgba(186,166,115,1);
 
@@ -41,9 +41,38 @@ p, a, span, small, button, label {
 }
 a:hover{
   text-decoration: none;
+  cursor: pointer;
+}
+::selection {
+  background:COLOR_ACCENT;
+  color:#FFF;
+  text-shadow:none;
+}
+::-webkit-selection {
+  background:COLOR_ACCENT;
+  color:#FFF;
+  text-shadow:none;
+}
+::-moz-selection {
+  background:COLOR_ACCENT;
+  color:#FFF;
+  text-shadow:none;
 }
 .btn, .btn:focus, .btn:active {
   outline:0 !important;
+}
+.btn:hover{
+  cursor: pointer;
+}
+.btn-primary.focus, .btn-primary:focus, .btn-primary:active.focus, .btn-primary:active:focus {
+  color: #fff;
+  background-color: COLOR_ACCENT !important;
+  border-color: COLOR_ACCENT !important;
+}
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+  color: #fff;
+  background-color: COLOR_ACCENT !important;
+  border-color: COLOR_ACCENT !important;
 }
 main{
   background: white;
@@ -225,7 +254,6 @@ a.navbar-brand span {
   border-color: COLOR_ACCENT;
   box-shadow: none;
   color: #000;
-  background: rgba(255, 255, 255, 0.7);
 }
 .navbar-form .btn-default {
   color: rgba(255, 255, 255, 0.7);
@@ -512,4 +540,11 @@ input#quantity:focus{
 i.glyphicon.glyphicon-lock {
     font-size: 12px;
     margin-right: 5px;
+}
+.search-box:hover{
+  background: rgba(255,255,255,0.7);
+  border-bottom: 1px solid #baa673;
+}
+.search-box:hover #searchButton, .search-box:hover #searchInput{
+  color: #333;
 }
